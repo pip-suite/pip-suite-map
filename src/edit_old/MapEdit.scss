@@ -1,0 +1,108 @@
+.pip-map-side-pane {
+  .map-add-button {
+    left: -70px;
+  }
+
+  .pip-map-edit-tools-list {
+    & > div {
+      position: relative;
+      margin-bottom: 10px;
+    }
+
+    md-icon {
+      vertical-align: text-bottom;
+    }
+
+    .pip-map-edit-tooltip {
+      position: absolute;
+      left: -100px;
+      min-width: 85px;
+      height: 32px;
+      font-size: 13px;
+      line-height: 28px;
+      text-align: center;
+      border-radius: 4px;
+    }
+  }
+
+  .pip-map-edit-tool {
+    width: 400px;
+    height: 100%;
+
+    md-icon {
+      cursor: pointer;
+    }
+
+    .pip-map-edit-header,
+    .pip-map-edit-content {
+      padding: 20px 20px 7px;
+    }
+
+    .pip-map-edit-header {
+      height: 110px;
+      z-index: 1;
+
+      .md-title {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+    }
+
+    .pip-map-edit-actions {
+      height: 40px;
+    }
+
+    .pip-map-edit-actions-block-tool,
+    .pip-map-edit-actions-block-main {
+      .md-button {
+        padding: 0 8px;
+      }
+    }
+
+    .pip-map-edit-content {
+      z-index: 0;
+    }
+
+    .pip-map-edit-footer {
+      height: 50px;
+      padding: 0 8px;
+      z-index: 1;
+      md-divider {
+        height: 100%;
+      }
+      .pip-map-edit-delete-button {
+        align-self: flex-start;
+      }
+    }
+
+    .md-errors-spacer {
+      display: none;
+    }
+  }
+
+  @media (max-width: $layout-breakpoint-sm) {
+    .pip-map-edit-tool {
+      width: 100vw;
+
+      .pip-map-edit-header {
+        height: auto !important;
+        padding: 0 !important;
+
+        md-input-container {
+          margin: 0;
+          padding: 0 20px;
+          md-select,
+          .md-input {
+            height: 50px;
+            border: 0;
+          }
+        }
+      }
+
+      .pip-map-edit-footer {
+        padding: 0 !important;
+      }
+    }
+  }
+}

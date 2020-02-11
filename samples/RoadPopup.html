@@ -1,0 +1,21 @@
+<pip-map-popup-content>
+    <div class="info-block bp0"
+         layout="column" layout-align="space-between start">
+         <md-button ng-click="parameter.element.options.events.click(parameter.model)">CLICK</md-button>
+        <span class="theme-text-primary md-title info-block-title bm0">{{:: parameter.model.title }}</span>
+        <span class="bm16" ng-style="{color: parameter.model.color}">{{ parameter.model.position || parameter.model.type }}</span>
+        <div flex layout="row" layout-align="start center">
+            <div layout="column">
+                    <span class="md-subhead theme-text-secondary info-block-option" ng-if="parameter.model.type !== 'person'">
+                      {{:: 'CREATOR' | translate }}:</span>
+                    <span class="md-subhead theme-text-secondary info-block-option">
+                      {{:: 'DETAILS' | translate }}:</span>
+            </div>
+
+            <div layout="column" class="lm12 info-block-values">
+                <span class="md-body-2 info-block-option" ng-if="parameter.model.type !== 'person'">{{:: parameter.model.creator || '--'}}</span>
+                <span class="md-body-2 info-block-option">{{:: parameter.model.details || '--' }}</span>
+            </div>
+        </div>
+    </div>
+</pip-map-popup-content>

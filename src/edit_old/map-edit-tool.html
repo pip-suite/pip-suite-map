@@ -1,0 +1,101 @@
+<!--map-edit-tool.html-->
+<div layout="column"
+     class="pip-map-edit-tool theme-text-primary"
+     ng-init="currentElement = editCtrl.currentElement; tool = currentElement.tool; model = tool.currentModel">
+
+  <header hide-xs class="pip-map-edit-header" layout="column" layout-align="space-between">
+    <h2 class="md-title">{{:: currentElement.getEditTitle() }}</h2>
+
+    <div class="pip-map-edit-actions" layout="row">
+      <span class="pip-map-edit-actions-block-main">
+         <md-button ng-click="tool.undo()"
+                    ng-disabled="tool.isUndoDisabled()">
+           <md-icon md-svg-icon="map:undo"
+                    aria-label="Undo"></md-icon>
+         </md-button>
+      </span>
+      <md-divider></md-divider>
+      <span class="pip-map-edit-actions-block-tool">
+        <md-button ng-repeat="action in tool.actions"
+                   ng-disabled="tool.isActionDisabled(action)"
+                   ng-click="tool.setAction(action)">
+          <md-icon md-svg-icon="{{:: action.definition.icon }}"
+                   aria-label="{{:: action.definition.name }}"
+                   ng-class="{ active: tool.isActionActive(action) }"></md-icon>
+        </md-button>
+      </span>
+    </div>
+  </header>
+
+  <header hide-gt-xs class="pip-map-edit-header" layout="column" layout-align="space-between">
+    <form name="editCtrl.modelForm"
+          ng-include="editCtrl.currentElement.tool.template"></form>
+  </header>
+
+  <md-divider></md-divider>
+
+  <section flex="auto" class="pip-map-edit-content">
+    <form hide-xs name="editCtrl.modelForm"
+          ng-include="editCtrl.currentElement.tool.template"></form>
+  </section>
+
+  <md-divider></md-divider>
+
+  <footer hide-xs class="pip-map-edit-footer" layout="row" layout-align="end center">
+    <div flex>
+      <md-button ng-click="editCtrl.remove()">
+        {{:: 'DELETE' | translate }} {{:: currentElement.name }}
+      </md-button>
+    </div>
+    <md-button ng-click="editCtrl.cancel()">
+      {{:: 'CANCEL' | translate }}
+    </md-button>
+    <md-button ng-click="editCtrl.save()"
+               ng-disabled="editCtrl.modelForm.$invalid">{{:: tool.titleSave | translate }}
+    </md-button>
+  </footer>
+
+  <footer hide-gt-xs class="pip-map-edit-footer" layout="row" layout-align="start center">
+    <div layout="row" layout-align="space-around">
+      <md-button ng-click="tool.undo()"
+                 ng-disabled="tool.isUndoDisabled()">
+        <md-icon md-svg-icon="map:undo" aria-label="Remove"></md-icon>
+      </md-button>
+    </div>
+
+    <md-divider></md-divider>
+
+    <md-menu flex layout="column">
+      <md-button class="pip-map-edit-actions-trigger" ng-click="$mdOpenMenu($event)">
+        <md-icon class="active"
+                 md-svg-icon="{{ tool.currentAction.definition.icon }}"
+                 aria-label="Trigger menu"
+                 md-menu-origin></md-icon>
+        <md-icon md-svg-icon="map:tools" aria-label="Triangle down"></md-icon>
+      </md-button>
+      <md-menu-content width="4">
+        <md-menu-item ng-repeat="action in tool.actions">
+          <md-button ng-click="tool.setAction(action)"
+                     ng-disabled="tool.isActionDisabled(action)">
+            <md-icon md-svg-icon="{{:: action.definition.icon }}"
+                     aria-label="{{:: action.definition.name }}"
+                     ng-class="{ active: tool.isActionActive(action) }"
+                     md-menu-align-target></md-icon>
+            {{:: action.definition.name }}
+          </md-button>
+        </md-menu-item>
+      </md-menu-content>
+    </md-menu>
+
+    <md-divider></md-divider>
+
+    <div layout="row" layout-align="space-around">
+      <md-button ng-click="editCtrl.cancel()">
+        <md-icon md-svg-icon="map:cross" aria-label="Close"></md-icon>
+      </md-button>
+      <md-button ng-click="editCtrl.save()" ng-disabled="editCtrl.modelForm.$invalid">
+        <md-icon md-svg-icon="map:check" aria-label="Sumbit"></md-icon>
+      </md-button>
+    </div>
+  </footer>
+</div>

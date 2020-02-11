@@ -1,0 +1,24 @@
+<!--map-popup-content.html-->
+<div class="map-popup-content">
+  <md-content md-theme="{{:: $root.$theme || 'blue' }}"
+              flex>
+    <md-button class="md-icon-button pip-map-info-window-close-button"
+             ng-click="closeClick(); $event.stopPropagation()"
+             tabindex="-1"
+             aria-label="close">
+    <md-icon class="theme-icon-active" md-svg-icon="icons:cross"></md-icon>
+  </md-button>
+
+    <ng-transclude></ng-transclude>
+  </md-content>
+
+  <!-- this is down arrow copied from google maps -->
+  <div class="pip-map-info-window-arrow-wrapper">
+    <div>
+      <div></div>
+    </div>
+    <div>
+      <div></div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,16 @@
+<!--map-markers.html-->
+<ui-gmap-markers models="ctrl.models"
+                 coords=":: ctrl.options.model.coords"
+                 icon=":: ctrl.options.model.icon"
+                 options="'options'"
+                 control=":: ctrl.control"
+                 events=":: ctrl.events"
+                 fit=":: ctrl.options.fitBounds">
+</ui-gmap-markers>
+
+<ui-gmap-polylines ng-if=":: ctrl.connect"
+                  models="ctrl.models"
+                  path=":: ctrl.connect.property"
+                  stroke=":: ctrl.connect.stroke"
+                  icons=':: ctrl.connect.icons'>
+</ui-gmap-polylines>

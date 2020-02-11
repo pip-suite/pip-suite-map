@@ -1,0 +1,19 @@
+<pip-simple flex="auto">
+    <pip-map-edit pip-map-options="mapOptions" pip-overlay="currentOverlay" pip-on-edit="onEdit(overlay, type, path, center, radius)"
+        pip-action-types="actionTypes" pip-disabled="isDisabled" pip-show-action-panel="false" pip-control="setControl(control)"
+        pip-disabled-polygons="areas" pip-disabled-polygons-options="areasOptions" pip-disabled-polylines="roads" pip-disabled-polylines-options="roadsOptions"
+        pip-disabled-circles="circles" pip-disabled-circles-options="circlesOptions">
+    </pip-map-edit>
+    <div style="position: absolute; bottom: 24px; right: 12px;">
+        <md-button class="md-icon-button md-raised" ng-click="onEditOrClear()">
+            <md-icon ng-if="state === 'edit'" md-svg-icon="icons:pen"></md-icon>
+            <md-icon ng-if="state === 'clear'" md-svg-icon="icons:cross"></md-icon>
+        </md-button>
+        <md-button class="md-raised" ng-click="onChangeOverlay()">
+            Change overlay
+        </md-button>
+        <md-button class="md-raised" ng-click="disable()">
+            Disable
+        </md-button>
+    </div>
+</pip-simple>

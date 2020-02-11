@@ -1,0 +1,11 @@
+<!--map-circles.html-->
+
+<ui-gmap-circle ng-repeat="c in ctrl.models" 
+        center="c[ctrl.options.center]" 
+        stroke="c[ctrl.options.stroke]" 
+        fill="c[ctrl.options.fill]" 
+        radius="c[ctrl.options.radius]" 
+        geodesic="c.geodesic"
+        events="ctrl.events" 
+        visible="true">
+</ui-gmap-circle>

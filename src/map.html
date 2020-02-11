@@ -1,0 +1,17 @@
+<!--map.html-->
+<div class="pip-map-side-panel flex-fixed flex-order-1"
+     ng-if="ctrl.sidePanel.show">
+  <ng-include src="ctrl.sidePanel.template"></ng-include>
+</div>
+
+<ui-gmap-google-map class="flex pip-map-provider-wrapper"
+                    control="ctrl.componentOptions.control"
+                    center="ctrl.map.center"
+                    zoom="ctrl.map.zoom"
+                    options="ctrl.map.options"
+                    bounds="ctrl.map.bounds"
+                    events="ctrl.map.events">
+  <div pip-map-popup="ctrl.popup"
+       ng-if="ctrl.popup"></div>
+  <ng-transclude></ng-transclude>
+</ui-gmap-google-map>

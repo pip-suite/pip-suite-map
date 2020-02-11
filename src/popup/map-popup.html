@@ -1,0 +1,9 @@
+<!--map-popup.html-->
+<ui-gmap-window ng-if="popup.isEnabled"
+                show="popup.isEnabled"
+                coords="popup.position"
+                templateUrl=":: popup.element.templateUrl"
+                templateParameter=":: popup"
+                options=":: popup.element.options"
+                closeClick="popup.close()">
+</ui-gmap-window>

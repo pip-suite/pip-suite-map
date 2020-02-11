@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Maps</title>
+
+    <link rel="stylesheet" href="../lib/pip-webui-lib.css" />
+    <link rel="stylesheet" href="../lib/pip-webui.css" />
+    <link rel="stylesheet" href="../dist/pip-suite-map.css" />
+    <link rel="stylesheet" href="index.css" />
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic">
+
+    <script src="https://maps.googleapis.com/maps/api/js?sensor=true&libraries=drawing&key=AIzaSyBg6cm-FDBFPWzRcn39AuSHGQSrdtVIjEo"></script>
+    <script src="https://www.google.com/jsapi"></script>
+    <script src="../lib/pip-webui-lib.js"></script>
+    <script src="../lib/pip-webui-lib-optional.js"></script>
+    <script src="../lib/pip-webui.js"></script>
+    <script src="../dist/pip-suite-map.js"></script>
+
+    <script src="Maps.js"></script>
+    <script src="DottracesMap.js"></script>
+    <script src="GroundOverlay.js"></script>
+    <script src="EditPolygon.js"></script>
+    <script src="index.js"></script>
+
+    <style>
+        .md-fab-toolbar-background {
+            left: 0px;
+        }
+    </style>
+</head>
+
+<body ng-app="app" md-theme="{{ $theme || 'blue' }}" class="{{ $theme }} pip-main layout-column">
+    <pip-main class="layout-column layout-align-start-start">
+        <pip-appbar class="flex-fixed w-stretch">
+            <pip-nav-icon></pip-nav-icon>
+            <pip-breadcrumb></pip-breadcrumb>
+            <div class="flex"></div>
+            <pip-primary-actions></pip-primary-actions>
+            <pip-secondary-actions></pip-secondary-actions>
+        </pip-appbar>
+        <pip-sidenav>
+            <pip-nav-menu>
+            </pip-nav-menu>
+        </pip-sidenav>
+        <pip-main-body class="flex w-stretch">
+            <div style="width: 100%" ui-view class="layout-column"></div>
+        </pip-main-body>
+    </pip-main>
+    <pip-routing-progress>
+    </pip-routing-progress>
+</body>
+
+</html>

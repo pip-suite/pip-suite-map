@@ -1,0 +1,21 @@
+<pip-map pip-options="$ctrl.map">
+    <ui-gmap-drawing-manager options="$ctrl.drawingManagerOptions" control="$ctrl.drawingManagerControl">
+    </ui-gmap-drawing-manager>
+
+    <pip-map-polygons pip-models="$ctrl.disabledPolygons" pip-options="$ctrl.disabledPolygonsOptions">
+    </pip-map-polygons>
+    <pip-map-polylines pip-models="$ctrl.disabledPolylines" pip-options="$ctrl.disabledPolylinesOptions">
+    </pip-map-polylines>
+    <pip-map-circles pip-models="$ctrl.disabledCircles" pip-options="$ctrl.disabledCirclesOptions">
+    </pip-map-circles>
+
+</pip-map>
+
+<div class="action-panel w-stretch layout-row layout-align-center-center" ng-if="$ctrl.showPanel">
+    <div class="action-buttons color-primary-bg flex-fixed">
+        <md-button ng-click="$ctrl.clearMap()" ng-if="$ctrl.showAction('clear')">{{ 'CLEAR_MAP' | translate }}</md-button>
+        <md-button ng-click="$ctrl.addCircle()" ng-if="$ctrl.showAction('circle')">{{ 'ADD_CIRCLE' | translate }}</md-button>
+        <md-button ng-click="$ctrl.addPolygon()" ng-if="$ctrl.showAction('polygon')">{{ 'ADD_POLYGON' | translate }}</md-button>
+        <md-button ng-click="$ctrl.addLine()" ng-if="$ctrl.showAction('line')">{{ 'ADD_LINE' | translate }}</md-button>
+    </div>
+</div>

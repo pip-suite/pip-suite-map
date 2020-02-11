@@ -1,0 +1,161 @@
+@import 'css_light/index';
+@import '../node_modules/pip-webui-all/dist/pip-webui.scss';
+@import './edit/MapEdit';
+
+.pip-map-side-panel {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  width: 300px;
+}
+
+.pip-map {
+  position: absolute;
+  left: 0;
+  top: 0;
+  //display: block;
+  overflow: hidden;
+  width: 100%; 
+  height: 100%;
+
+  /* Surface fix for zomming and panning */
+  touch-action: none;
+  -ms-touch-action: none;
+
+
+  .angular-google-map,
+  .angular-google-map-container {
+    width: 100%; height: 100%;
+
+    @media (max-width: $layout-breakpoint-sm) {
+      width: 100vw !important;
+    }
+  }
+}
+
+// Theme styles
+md-content {
+  ui-gmap-google-map {
+    img[src^="http://maps.googleapis.com/maps/api/js/StaticMapService.GetMapImage"] {
+      display: none;
+    }
+  }
+
+  &.md-dim-theme ui-gmap-google-map img[src*="googleapis.com"] {
+    opacity: 0.54;
+  }
+
+  &.md-dark-theme ui-gmap-google-map img[src*="googleapis.com"] {
+    opacity: 0.26;
+  }
+}
+
+
+.pip-map-info-window {
+  width: $map-info-window-width;
+  height: $map-info-window-height;
+  border-radius: 2px;
+
+  .map-popup-content,
+  pip-map-popup-content {
+    height: 100%;
+  }
+
+  md-content {
+    height: 100%;
+    border-radius: 2px;
+
+    .info-block {
+      padding: $mobile-padding;
+
+      .md-title {
+        max-width: 90%;
+        @include text-overflow();
+      }
+
+      .info-block-content,
+      .info-block-title {
+        margin-bottom: 12px;
+      }
+
+      .info-block-option {
+        font-size: 16px;
+        margin-bottom: 5px;
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+
+      .info-block-values {
+        @media (max-width: $layout-breakpoint-sm) {
+          max-width: 50%;
+
+          .info-block-option {
+            max-width: 100%;
+            @include text-overflow();
+          }
+        }
+      }
+    }
+
+    .info-block-actions {
+      position: relative;
+      bottom: -10px;
+    }
+
+    .info-buttons {
+      bottom: -2px;
+      padding-bottom: $mobile-padding / 2;
+      padding-left: $mobile-padding;
+    }
+  }
+
+  .pip-map-info-window-close-button {
+    position: absolute;
+    top: 5px;
+    right: 0;
+    margin: 0;
+    padding: 0;
+  }
+
+  .pip-map-info-window-arrow-wrapper {
+    position: absolute;
+    left: $map-info-window-width / 2 - $map-info-window-arrow-width / 2;
+
+    > div {
+      position: absolute;
+      top: -1px;
+      width: 16px;
+      height: 30px;
+      overflow: hidden;
+
+      > div {
+        position: absolute;
+        height: 24px;
+        width: 10px;
+      }
+    }
+
+    > div:first-child {
+      left: -6px;
+
+      > div {
+        left: 6px;
+        transform: skewX(22.6deg);
+        transform-origin: 10px 0 0;
+      }
+    }
+
+    > div:last-child {
+      left: 10px;
+
+      > div {
+        left: 0;
+        transform: skewX(-22.6deg);
+        transform-origin: 10px 0 0;
+      }
+    }
+  }
+}

@@ -1,0 +1,25 @@
+<!--map-edit-tools.html-->
+<md-fab-speed-dial class="pip-floating-button map-add-button md-scale"
+                   md-direction="up"
+                   md-open="fab.isOpen">
+
+  <md-fab-trigger>
+    <md-button class="md-fab" ng-class="{'md-accent md-raised': !fab.isOpen, 'md-warn': fab.isOpen}">
+      <md-icon md-svg-icon="map:plus" aria-label="Open" class="md-headline centered-add-icon" ng-if="!fab.isOpen"></md-icon>
+      <md-icon md-svg-icon="map:cross" aria-label="Close" class="md-headline centered-add-icon" ng-if="fab.isOpen"></md-icon>
+    </md-button>
+  </md-fab-trigger>
+
+  <md-fab-actions class="pip-map-edit-tools-list">
+    <div ng-repeat="element in ::editCtrl.elements">
+      <span class="pip-map-edit-tooltip">
+        {{:: element.name }}
+      </span>
+      <md-button class="md-fab md-raised md-mini"
+                 ng-click="editCtrl.createElement(element)">
+        <md-icon md-svg-icon="{{:: element.icon }}"
+                 aria-label="{{:: element.icon }}"></md-icon>
+      </md-button>
+    </div>
+  </md-fab-actions>
+</md-fab-speed-dial>
