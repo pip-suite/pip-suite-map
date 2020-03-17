@@ -2199,8 +2199,8 @@ try {
   module = angular.module('pipMaps.Templates', []);
 }
 module.run(['$templateCache', function($templateCache) {
-  $templateCache.put('elements/polygons/map-polygons.html',
-    '<ui-gmap-polygons models="ctrl.models" path="ctrl.options.path" stroke="ctrl.options.stroke" fill="ctrl.options.fill" control="ctrl.control" events="ctrl.events" visible="\'visible\'" geodesic="\'geodesic\'" editable="\'editable\'" draggable="\'draggable\'" fit=":: ctrl.options.fitBounds"></ui-gmap-polygons>');
+  $templateCache.put('elements/polylines/map-polylines.html',
+    '<ui-gmap-polylines models="ctrl.models" path="ctrl.options.path" stroke="ctrl.options.stroke" icons="ctrl.options.icons" control="ctrl.control" events="ctrl.events" visible="\'visible\'" geodesic="\'geodesic\'" editable="\'editable\'" draggable="\'draggable\'" static="ctrl.options.static" fit="ctrl.options.fitBounds"></ui-gmap-polylines>');
 }]);
 })();
 
@@ -2211,8 +2211,8 @@ try {
   module = angular.module('pipMaps.Templates', []);
 }
 module.run(['$templateCache', function($templateCache) {
-  $templateCache.put('elements/polylines/map-polylines.html',
-    '<ui-gmap-polylines models="ctrl.models" path="ctrl.options.path" stroke="ctrl.options.stroke" icons="ctrl.options.icons" control="ctrl.control" events="ctrl.events" visible="\'visible\'" geodesic="\'geodesic\'" editable="\'editable\'" draggable="\'draggable\'" static="ctrl.options.static" fit="ctrl.options.fitBounds"></ui-gmap-polylines>');
+  $templateCache.put('elements/polygons/map-polygons.html',
+    '<ui-gmap-polygons models="ctrl.models" path="ctrl.options.path" stroke="ctrl.options.stroke" fill="ctrl.options.fill" control="ctrl.control" events="ctrl.events" visible="\'visible\'" geodesic="\'geodesic\'" editable="\'editable\'" draggable="\'draggable\'" fit=":: ctrl.options.fitBounds"></ui-gmap-polygons>');
 }]);
 })();
 
